@@ -1,8 +1,18 @@
 #ifndef REPASO_CIRCULO_H
 #define REPASO_CIRCULO_H
+#include "Geometria.h"
 
+/* clase circulo que hereda de geometria */
+class Circulo: public Geometria {
+protected:
+    float radio;
+public:
+    float getRadio() const;
 
-class Circulo {
+    void setRadio(float radio);
+
+    float getSuperficie();
+    float getPerimetro();
 
 };
 
