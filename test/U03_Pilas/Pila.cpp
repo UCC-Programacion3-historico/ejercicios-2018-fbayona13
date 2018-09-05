@@ -16,12 +16,12 @@ TEST(U03_Pilas, agregoTres_noVacia) {
 }
 
 TEST(U03_Pilas, popEnSentidoInverso) {
-    EXPECT_EQ(miPila->pop(), 1);
-    EXPECT_EQ(miPila->pop(), 2);
-    EXPECT_EQ(miPila->pop(), 3);
+    EXPECT_EQ(miPila->pop(nullptr), 1);
+    EXPECT_EQ(miPila->pop(nullptr), 2);
+    EXPECT_EQ(miPila->pop(nullptr), 3);
     EXPECT_EQ(miPila->esVacia(), true);
 }
 
 TEST(U03_Pilas, otroPopException) {
-    EXPECT_ANY_THROW(miPila->pop());
+    EXPECT_ANY_THROW(miPila->pop(nullptr));
 }

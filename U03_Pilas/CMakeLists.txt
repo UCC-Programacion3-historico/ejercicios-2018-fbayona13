@@ -1,4 +1,4 @@
-set(SOURCE_FILES_01 Ej-01/main.cpp Pila/Pila.h)
+set(SOURCE_FILES_01 Ej-01/main.cpp Pila/Pila.h Pila/nodo.h)
 add_executable(U03-E01 ${SOURCE_FILES_01})
 
 set(SOURCE_FILES_02 Ej-02/main.cpp)

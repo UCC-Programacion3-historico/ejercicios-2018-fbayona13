@@ -1,5 +1,6 @@
 #ifndef LISTA_H
 #define LISTA_H
+#include "nodo.h"
 
 /**
  * Clase que implementa una Pila generica, ya que puede
@@ -9,6 +10,7 @@
 template<class T>
 class Pila {
 private:
+    Nodo<T> *tope;
 
 public:
     Pila();
@@ -28,7 +30,9 @@ public:
  * @tparam T
  */
 template<class T>
-Pila<T>::Pila() {}
+Pila<T>::Pila() {
+    tope=nullptr;
+}
 
 
 /**
@@ -37,7 +41,21 @@ Pila<T>::Pila() {}
  * @tparam T
  */
 template<class T>
-Pila<T>::~Pila() {}
+Pila<T>::~Pila() {
+
+    //creamos un nodo auxiliar
+    Nodo<T> *aux= tope;
+
+    //tope y aux tienen la misma posicion en la lista
+    //movemos a tope a la siguiente posicion y borramos aux
+    //asignamos a aux a la posicion de tope
+    while (aux!= nullptr){
+        tope = aux->getNext();
+        delete aux;
+        aux=tope;
+    }
+
+}
 
 
 /**
@@ -46,7 +64,22 @@ Pila<T>::~Pila() {}
  * @param dato  dato a insertar
  */
 template<class T>
-void Pila<T>::push(T dato) {}
+void Pila<T>::push(T dato) {
+
+    // creamos un nodo nuevo
+    auto *nuevo=new Nodo<T>();
+
+    nuevo->setDato(dato);
+
+
+    //apuntamos el nodo nuevo hacia el nodo
+    nuevo->setNext(tope);
+
+
+    //creamos un nuevo tope y lo ponemos al final de la fila
+
+    tope= nuevo;
+}
 
 
 /**
@@ -55,7 +88,25 @@ void Pila<T>::push(T dato) {}
  * @return dato almacenado en el nodo
  */
 template<class T>
-T Pila<T>::pop() {}
+T Pila<T>::pop() {
+
+    //verificamos que la pila no este vacia
+    if (tope== nullptr)
+        throw 1;
+
+    //sacamos y guardamos el dato que va a devolver
+    T dato=tope->getDato();
+
+    //creamos un auxiliar para poder identificar el nodo a borrar
+    Nodo<T> *aux= tope;
+
+    //actualiza la posicion del tope
+    tope=tope->getNext();
+
+    //borramos el auxiliar y devolvemos el dato
+    delete aux;
+    return dato;
+}
 
 /**
  * Responde si la pila se encuentra Vacía
@@ -64,6 +115,8 @@ T Pila<T>::pop() {}
  */
 template<class T>
 bool Pila<T>::esVacia() {
+
+    return tope== nullptr;
 
 }
 
