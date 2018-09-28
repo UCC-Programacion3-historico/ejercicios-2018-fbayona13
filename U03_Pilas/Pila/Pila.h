@@ -22,6 +22,8 @@ public:
     T pop();
 
     bool esVacia();
+
+    T peek();
 };
 
 
@@ -119,5 +121,21 @@ bool Pila<T>::esVacia() {
     return tope== nullptr;
 
 }
+
+/**
+ * funcion para revisar el valor de tope sin tener que sacarlo
+ */
+template<class T>
+T Pila<T>::peek() {
+
+    T aux;
+    aux= *tope;
+    return aux;
+
+}
+
+/**
+ * TIENE UN ERROR!
+ */
 
 #endif //LISTA_H
