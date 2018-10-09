@@ -13,7 +13,7 @@ int main() {
         cin >> dato;
         lista.getDato(dato);
     }
-    lista.reemplazar(1,dato)
+    lista.reemplazar(1,dato);
 
 
     return 0;

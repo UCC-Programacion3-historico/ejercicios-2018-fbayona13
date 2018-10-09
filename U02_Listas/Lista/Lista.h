@@ -72,7 +72,10 @@ Lista<T>::~Lista() {}
  * @return true si la lista esta vacia, sino false
  */
 template<class T>
-bool Lista<T>::esVacia() { return inicio == nullptr; }
+bool Lista<T>::esVacia() {
+
+    return inicio == nullptr;
+}
 
 
 /**
@@ -180,7 +183,7 @@ void Lista<T>::remover(unsigned int pos) {
         aux = aux->getNext();
     }
 
-    // Error no extiste el nodo (me pase)
+    // Error no existe el nodo (me pase)
     if (aux == nullptr)
         throw 1;
 
